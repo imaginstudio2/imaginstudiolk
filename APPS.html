@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANAPOTHA App</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            height: 100%;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Transparent Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0);
+            padding: 10px 20px;
+            width: 100%;
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Logo */
+        .logo img {
+            height: 50px; /* Adjust the size of the logo */
+        }
+
+        /* Navigation */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 0 auto;
+        }
+        .nav-links li {
+            display: inline;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .nav-links a:hover {
+            color: #ffcc00;
+            transform: translateY(-2px);
+        }
+
+        /* Full-Screen Background Image */
+        main {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            width: 100%;
+            padding-top: 50px;
+            min-height: 100vh; /* Ensures full screen height */
+            background-image: url('ai.png'); /* Replace with your image */
+            background-size: cover; /* Makes the image cover the entire viewport */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Ensures it doesn't repeat */
+        }
+
+        /* App Screenshot Section */
+        .screenshots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .screenshots img {
+            width: 320px; /* Size adjusted for Play Store display */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #000000;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+            margin-top: auto;
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: rgba(0, 0, 0, 0.8);
+                width: 200px;
+                padding: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                text-align: center;
+            }
+
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+
+            .hamburger div {
+                width: 30px;
+                height: 4px;
+                margin: 5px;
+                background-color: white;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="20250504_074717.jpg" alt="BANAPOTHA App Logo">
+        </div>
+
+        <!-- Hamburger Menu for Mobile -->
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="products.html">APPS</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
+
+    <!-- App Screenshot Section -->
+    <main>
+        <h1 class="product-heading">Our Featured App Screenshots</h1>
+
+        <div class="screenshots">
+            <img src="S.png" alt="Screenshot 1">
+            <img src="S2.png" alt="Screenshot 2">
+            <img src="S3.png" alt="Screenshot 3">
+            <img src="S4.png" alt="Screenshot 4">
+            <img src="S5.png" alt="Screenshot 5">
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Your Company Name. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript to toggle the mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
